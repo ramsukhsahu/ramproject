@@ -1,8 +1,14 @@
-<?Php
-require "config.php"; 
-$id=$_GET['id'];
-$result=mysql_query("select * from enquiries where id=$id");
-while ($row=mysql_fetch_array($result)) {
-	echo "Email: ".$row["email"].", <span class='pad5'> Comment: ".$row["comment"]." , <span class='pad5'> DateTime : ",$row["datetime"];
+<?php
+require "config.php";
+$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$result = mysqli_query($conn, "SELECT * FROM enquiries WHERE id = $id");
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "Email: " . $row["email"] .
+         ", <span class='pad5'> Comment: " . $row["comment"] .
+         " , <span class='pad5'> DateTime : " . $row["datetime"];
 }
 ?>
+
