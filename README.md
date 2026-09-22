@@ -1,4 +1,4 @@
-# ramproject
+# Enquiry_Display
 MBA Course Enquiry  Display Details
 
 A simple PHP and MySQL web application for displaying MBA course enquiries and loading enquiry details dynamically using AJAX/jQuery.
