@@ -1,16 +1,8 @@
 <?php
 ///////// Database Details  ////
-$host = "localhost";
-$database = "admission";
-$username = "root"; 
-$password = "";
+$conn = mysqli_connect("localhost", "root", "", "admission");
 
-$con=mysql_connect($host,$username,$password);
-if(!$con) {
-    die("Database Connection error" . mysql_error());
-}
-$db=mysql_select_db($database,$con);
-if(!$db) {
-    die("Database Selection error" . mysql_error());
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
 }
 ?>
