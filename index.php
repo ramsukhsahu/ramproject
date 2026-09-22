@@ -25,15 +25,31 @@ require "config.php";
 <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 table table-striped heading'>MBA Course Enquiry Details</div>
 <table class='table table-striped'> 
 <tr class='info'><td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>S.No.</td><td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name</td><td ></td><td class='col-lg-12 col-md-12 col-sm-12 col-xs-8'> Details </td></tr>
-<?Php
-$qry="select * from enquiries order by id";
+<?php
+$qry = "SELECT * FROM enquiries ORDER BY id";
 echo "<table class='table table-striped'>";
-$result=mysql_query($qry);
-while ($row=mysql_fetch_array($result)) {
-echo "<tr><td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>$row[id] </td><td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'> <a value=$row[id] class='b_dtl'>$row[first_name] $row[last_name]</a></td><td class='col-lg-12 col-md-12 col-sm-12 col-xs-8'><div id='$row[id]' class='my_dtl'> </div> </td> </tr>";
+$result = mysqli_query($conn, $qry);
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+while ($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>
+        <td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>{$row['id']}</td>
+        
+        <td class='col-lg-2 col-md-2 col-sm-2 col-xs-2'>
+            <a value='{$row['id']}' class='b_dtl'>
+                {$row['first_name']} {$row['last_name']}
+            </a>
+        </td>
+        
+        <td class='col-lg-12 col-md-12 col-sm-2 col-xs-8'>
+            <div id='{$row['id']}' class='my_dtl'></div>
+        </td>
+    </tr>";
 }
 echo "</table>";
 ?>
+
 </div>
 <script>
 $(document).ready(function() {
