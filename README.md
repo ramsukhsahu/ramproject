@@ -7,9 +7,9 @@ Features
 
 Displays MBA course enquiry records from the MySQL database.
 Shows:
-Serial/Enquiry ID
-First name
-Last name
+  Serial/Enquiry ID
+  First name
+  Last name
 Click a student's name to view additional enquiry details.
 Details are loaded dynamically using jQuery.
 Uses MySQLi 5.7 or 8.0
