@@ -49,7 +49,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 echo "</table>";
 ?>
-
 </div>
 <script>
 $(document).ready(function() {
